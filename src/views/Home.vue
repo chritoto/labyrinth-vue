@@ -1,15 +1,15 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Here in my garage!" />
+  <div id="app">
+    <p>{{ message }}</p>
+    <input v-model="message">
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue';
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: 'app',
+  data: {
+    message: 'Hello Vue!'
   }
 };
 </script>
