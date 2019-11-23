@@ -15,6 +15,8 @@
 <script>
 import { UserCollection } from '../firebase';
 import { getToken } from '../authentication/authTokenTools';
+//import { labyrinthbeg } from '../api/labyrinthApi';
+import Vue from 'vue';
 export default {
   name: 'data',
   data() {
@@ -26,6 +28,11 @@ export default {
   },
   methods: {
     addLocation() {
+      console.log(
+        Vue.axios
+          .get('https://labyrinth-api.herokuapp.com/maze/beginner')
+          .then(result => result.data)
+      );
       UserCollection.doc(getToken())
         .set({
           x: this.x,

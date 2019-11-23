@@ -12,3 +12,7 @@ const fetchCurrentUser = () => {
 };
 
 export default { signIn, fetchCurrentUser };
+
+const labyrinthbeg = () => {
+  return Vue.axios.get("https://labyrinth-api.herokuapp.com/maze/beginner");
+};
