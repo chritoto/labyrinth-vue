@@ -16,23 +16,32 @@ export default {
   },
   mounted() {
     this.script = p => {
-      var x = 100;
-      var y = 100;
+      var x = 0;
+      var y = 0;
       var canvas = null;
 
       p.setup = _ => {
         canvas = p.createCanvas(600, 420);
         canvas.parent(this.$refs.canvas);
         p.frameRate(60);
+        //aller get le labyrinthe
       };
 
+      //dessinne ICITTT
       p.draw = _ => {
         p.background(0);
         p.fill(255);
-        p.rect(x, y, 50, 50);
-        x++;
-        if (x > 600) {
-          x = 0;
+        p.rect(x, y, 10, 10);
+
+        //les controles pis toutes !
+        if (p.keyIsDown(p.LEFT_ARROW)) {
+          x -= 3; //add to server function set position
+        } else if (p.keyIsDown(p.RIGHT_ARROW)) {
+          x += 3;
+        } else if (p.keyIsDown(p.UP_ARROW)) {
+          y -= 3;
+        } else if (p.keyIsDown(p.DOWN_ARROW)) {
+          y += 3;
         }
       };
     };
