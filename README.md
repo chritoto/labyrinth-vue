@@ -2,6 +2,7 @@
 
 # Dialog Insight Hackathon 2019
 
+Moi c'est alex !
 Welcome to the official Dialog Insight Hackathon 2019 repository.
 
 You can find the terms and conditions [here](docs/TheHackathon.md).
