@@ -30,6 +30,10 @@ export default {
         p.background(0);
         p.fill(255);
         p.rect(x, y, 50, 50);
+        x++;
+        if (x > 600) {
+          x = 0;
+        }
       };
     };
     const P5 = require('p5');
