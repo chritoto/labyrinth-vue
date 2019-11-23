@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Lost from '../views/Lost.vue';
+import data from '../views/data.vue';
 import { hasToken } from '../authentication/authTokenTools';
 
 Vue.use(VueRouter);
@@ -11,6 +12,14 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/data',
+    name: 'data',
+    component: data,
     meta: {
       requiresAuth: true
     }
