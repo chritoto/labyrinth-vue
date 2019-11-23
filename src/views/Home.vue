@@ -11,6 +11,5 @@
 <script>
 el: '#app-6';
   data: {
-    message: 'Hello Vue!';
-  };
+    message: 'Hello Vue!';}
 </script>
