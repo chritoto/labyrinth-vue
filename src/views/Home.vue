@@ -1,39 +1,40 @@
 <template>
-  <div id="app">
-    <form>
-      <label>
-        New Todo:
-        <input v-model="newTodo" type="text"/>
-        <button type="submit" @click.prevent="addTodo()">Add</button>
-      </label>
-    </form>
+  <div style="margin-top: 72px;">
+    <b-container>
+      <div ref="canvas"></div>
+      <b-btn>Change color</b-btn>
+    </b-container>
   </div>
 </template>
-
 <script>
-import { todosCollection } from '../firebase';
 export default {
-  name: 'app',
-  data () {
+  data: function() {
     return {
-      newTodo: ''
-    }
+      script: null,
+      ps: null
+    };
   },
-  methods: {
-    addTodo() {
-      todosCollection.add({
-        text: this.newTodo,
-        completed: false,
-        createdAt: new Date()
-      })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-      this.newTodo = '';
-    }
+  mounted() {
+    this.script = p => {
+      var x = 100;
+      var y = 100;
+      var canvas = null;
+
+      p.setup = _ => {
+        canvas = p.createCanvas(600, 420);
+        canvas.parent(this.$refs.canvas);
+        p.frameRate(60);
+      };
+
+      p.draw = _ => {
+        p.background(0);
+        p.fill(255);
+        p.rect(x, y, 50, 50);
+      };
+    };
+    const P5 = require('p5');
+    this.ps = new P5(this.script);
+    console.log(this.ps);
   }
-}
+};
 </script>
