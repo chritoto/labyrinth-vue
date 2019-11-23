@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase';
-import { getToken } from './authentication/authTokenTools';
 
 const app = initializeApp({
   apiKey: 'AIzaSyB8lo0Co4Lx5bLT5Joj8ttScFv3qfbV3ZQ',
@@ -12,4 +11,4 @@ const app = initializeApp({
 });
 
 export const db = app.firestore();
-export const UserCollection = db.collection(getToken());
+export const UserCollection = db.collection('coordinates');
