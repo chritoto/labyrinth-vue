@@ -9,8 +9,8 @@
 </template>
 
 <script>
-el: '#app-6',
+el: '#app-6';
   data: {
-    message: 'Hello Vue!'
+    message: 'Hello Vue!;
   }
 </script>
