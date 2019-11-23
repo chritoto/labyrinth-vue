@@ -1,17 +1,18 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Here in my garage!" />
   </div>
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue';
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
   }
-};
+})
 </script>
