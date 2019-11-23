@@ -9,12 +9,14 @@
 </template>
 <script>
 import { db } from '../firebase';
+import { getToken } from '../authentication/authTokenTools';
+import { UserCollection } from '../firebase';
 export default {
   data: function() {
     return {
       script: null,
       ps: null,
-      player: { pos: { x: 0, y: 0 } }
+      player: { id: getToken(), pos: { x: 0, y: 0 } }
     };
   },
   methods: {
@@ -42,6 +44,10 @@ export default {
         p.fill(255);
         p.rect(this.player.pos.x, this.player.pos.y, 10, 10);
 
+        UserCollection.doc(this.player.id).set({
+          x: this.player.pos.x,
+          y: this.player.pos.y
+        });
         //les controles pis toutes !
         if (p.keyIsDown(p.LEFT_ARROW)) {
           this.player.pos.x -= 3; //add to server function set position

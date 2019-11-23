@@ -30,7 +30,6 @@ export default {
         .set({
           x: this.x,
           y: this.y,
-          createdAt: new Date()
         })
         .then(function(docRef) {
           console.log('Location written with ID: ', docRef.id);
