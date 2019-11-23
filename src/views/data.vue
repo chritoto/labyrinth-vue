@@ -29,7 +29,7 @@ export default {
       UserCollection.doc(getToken())
         .set({
           x: this.x,
-          y: this.y,
+          y: this.y
         })
         .then(function(docRef) {
           console.log('Location written with ID: ', docRef.id);

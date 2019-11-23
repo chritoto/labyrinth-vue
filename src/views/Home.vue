@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import { db } from '../firebase';
+//import { db } from '../firebase';
 import { getToken } from '../authentication/authTokenTools';
 import { UserCollection } from '../firebase';
 export default {
@@ -21,10 +21,12 @@ export default {
   },
   methods: {
     newgame() {
-      var req = db.delete();
-      req.onsuccess = function() {
-        console.log('Deleted database successfully');
-      };
+      var users = UserCollection.orderBy('x', 'desc');
+      console.log(users);
+      for (var i = 0; i < users.length; i++) {
+        console.log(users[i].id);
+        users[i].get().delete();
+      }
     }
   },
   mounted() {
