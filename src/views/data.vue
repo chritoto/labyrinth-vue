@@ -29,7 +29,6 @@ export default {
       UserCollection.add({
         x: this.x,
         y: this.y,
-        completed: false,
         createdAt: new Date()
       })
         .then(function(docRef) {

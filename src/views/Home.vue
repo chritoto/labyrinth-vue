@@ -1,5 +1,6 @@
 <template>
   <div style="margin-top: 72px;">
+    <p><button type="submit" @click.prevent="newgame()">NEW GAME</button></p>
     <b-container>
       <div ref="canvas"></div>
       <b-btn>Change color</b-btn>
@@ -7,6 +8,7 @@
   </div>
 </template>
 <script>
+import { db } from '../firebase';
 export default {
   data: function() {
     return {
@@ -14,6 +16,14 @@ export default {
       ps: null,
       player: { pos: { x: 0, y: 0 } }
     };
+  },
+  methods: {
+    newgame() {
+      var req = db.delete();
+      req.onsuccess = function() {
+        console.log('Deleted database successfully');
+      };
+    }
   },
   mounted() {
     this.script = p => {
