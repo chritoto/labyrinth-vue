@@ -12,5 +12,5 @@
 el: '#app-6';
   data: {
     message: 'Hello Vue!';
-  }
+  };
 </script>
