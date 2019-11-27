@@ -28,11 +28,11 @@ export default {
   },
   methods: {
     addLocation() {
-      console.log(
-        Vue.axios
-          .get('https://labyrinth-api.herokuapp.com/maze/beginner')
-          .then(result => result.data)
-      );
+      Vue.axios
+        .get('https://labyrinth-api.herokuapp.com/maze/beginner')
+        .then(result => {
+          console.log(result.data);
+        });
       UserCollection.doc(getToken())
         .set({
           x: this.x,
